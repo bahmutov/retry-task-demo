@@ -1,7 +1,7 @@
 const getRandomNumber = () => {
   return new Cypress.Promise((resolve, reject) => {
     setTimeout(() => {
-      const x = Cypress._.random(0, 50)
+      const x = Cypress._.random(0, 20)
       console.log('resolving with %d', x)
       resolve(x)
     }, 10)
@@ -22,7 +22,7 @@ const retry = fn => () => {
 
 it('retries task', () => {
   let counter = 0
-  const limit = 100
+  const limit = 10
   const printToTerminal = () => cy.task('print', (counter += 1), { log: false })
 
   // cypress-pipe does not retry Cypress chains
